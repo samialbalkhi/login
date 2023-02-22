@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\CustomAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware(
 // Auth::routes();  
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/athe', [CustomAuthController::class, 'athe'])->middleware('CheckAge');
+
+Route::get('/site', [CustomAuthController::class, 'site']);
+Route::get('/admin', [CustomAuthController::class, 'admin']);
